@@ -5,12 +5,12 @@ from collections import defaultdict
 def checkout(skus):
     prices = {'A':50, 'B': 30, 'C':20, 'D':15, 'E':40, 'F':10}
     # count = {'A':0, 'B':0, 'C':0, 'D':0, 'E':0, 'F':0}
-    count = defaultdict()
+    count = defaultdict(int)
 
     for sku in skus:
         if sku not in prices:
             return -1
-        count[sku] += 1
+        count[sku] = 1 + count.get(sku, 0)
     
     chk_val = 0
 
@@ -45,5 +45,6 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
