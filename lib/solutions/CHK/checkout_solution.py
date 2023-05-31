@@ -33,16 +33,12 @@ def checkout(skus):
             rem_2B = cnt % 2
 
             chk_val += (45*grp_2B) + (30*rem_2B)
-        
-        elif sku == 'E':
-            grp_2E = cnt // 2
-
-            chk_val += (40*cnt)
 
         else:
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 

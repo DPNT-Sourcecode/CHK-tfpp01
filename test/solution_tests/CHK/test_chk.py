@@ -6,6 +6,8 @@ class TestCHK():
         assert checkout_solution.checkout("AAAAAAAABBBCDDEE") == 505
         assert checkout_solution.checkout("EEEB") == 120
         assert checkout_solution.checkout("EEEEBB") == 160
+        assert checkout_solution.checkout("EE") == 80
+
 
 
 
