@@ -12,6 +12,13 @@ def checkout(skus):
         count[sku] += 1
     
     chk_val = 0
+
+    grp_2E = count['E'] // 2
+    if count['B'] < grp_2E:
+        count['B'] = 0
+    count['B'] -= grp_2E
+    
+
     for sku, cnt in count.items():
         if sku == 'A':
             grp_5A = cnt // 5
@@ -27,15 +34,16 @@ def checkout(skus):
 
             chk_val += (45*grp_2B) + (30*rem_2B)
         
-        # elif sku == 'E':
-        #     grp_2E = cnt // 2
+        elif sku == 'E':
+            grp_2E = cnt // 2
 
-        #     chk_val += (40*cnt)
+            chk_val += (40*cnt)
 
         else:
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
