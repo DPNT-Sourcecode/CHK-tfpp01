@@ -18,5 +18,3 @@ class TestCHK():
         assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAAFF") == 685
         assert checkout_solution.checkout("AAAAAEEBAAABBFFFF") == 485
         assert checkout_solution.checkout("AAAAAEEBAAABBFFFFFFFF") == 515
-
-

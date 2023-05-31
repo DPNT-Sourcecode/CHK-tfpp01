@@ -45,5 +45,3 @@ def checkout(skus):
 
     return chk_val
 
-
-
