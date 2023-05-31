@@ -14,9 +14,10 @@ def checkout(skus):
     chk_val = 0
 
     grp_2E = count['E'] // 2
-    if count['B'] < grp_2E:
+    if count['B'] <= grp_2E:
         count['B'] = 0
-    count['B'] -= grp_2E
+    elif count['B'] > grp_2E:
+        count['B'] -= grp_2E
     
 
     for sku, cnt in count.items():
@@ -38,6 +39,7 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
