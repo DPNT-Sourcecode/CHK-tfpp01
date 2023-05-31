@@ -1,10 +1,11 @@
 
-
+from collections import defaultdict
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    prices = {'A':50, 'B': 30, 'C':20, 'D':15, 'E':40, 'F':10 }
-    count = {'A':0, 'B':0, 'C':0, 'D':0, 'E':0, 'F':0}
+    prices = {'A':50, 'B': 30, 'C':20, 'D':15, 'E':40, 'F':10}
+    # count = {'A':0, 'B':0, 'C':0, 'D':0, 'E':0, 'F':0}
+    count = defaultdict()
 
     for sku in skus:
         if sku not in prices:
@@ -44,4 +45,5 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
