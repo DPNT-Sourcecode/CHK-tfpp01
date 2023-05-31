@@ -27,47 +27,15 @@ def checkout(skus):
 
             chk_val += (45*grp_2B) + (30*rem_2B)
         
-        elif sku == 'E':
-            grp_2E = cnt // 2
+        # elif sku == 'E':
+        #     grp_2E = cnt // 2
 
-            chk_val += (40*cnt)
+        #     chk_val += (40*cnt)
 
         else:
             chk_val += cnt*prices[sku]
 
     return chk_val
 
-    
-    # total = 0
-    # cnt_A = 0
-    # cnt_B = 0
-
-    # for sku in skus:
-        
-    #     if sku not in 'ABCD':
-    #         return -1
-
-    #     elif sku == 'A':
-    #         cnt_A += 1
-
-    #     elif sku == 'B':
-    #         cnt_B += 1
-        
-    #     elif sku == 'C':
-    #         total += 20
-
-    #     elif sku == 'D':
-    #         total += 15
-
-    # # Get groups of multipack and remainder
-    # grp_A = cnt_A // 3
-    # rem_A = cnt_A % 3
-
-    # grp_B = cnt_B // 2
-    # rem_B = cnt_B % 2
-
-    # total += (grp_A*130) + (rem_A*50) + (grp_B*45) + (rem_B*30)
-
-    # return total
 
 
