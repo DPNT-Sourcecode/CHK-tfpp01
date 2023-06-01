@@ -97,11 +97,21 @@ def checkout(skus):
                 count[other[sku]] -= grp   
     
     # STXYZ
+    total_cnt = 0
     for sku in 'ZYSTX':
-        grp3 = count[sku]//3
-        count[sku] = count[sku] % 3
-        chk_val += (45 * grp3)
-        
+        total_cnt += count[sku]
+
+    local_cnt = 0
+    while total_cnt > 0:
+        for sku in 'ZYSTX':
+            while count[sku] > 0:
+                count[sku] -= 1
+                local_cnt += 1
+
+                if local_cnt == 3:
+                    chk_val += 45
+                    local_cnt = 0
+
     for sku, cnt in count.items():
         if sku == 'A' or sku == 'H' or sku == 'V':
             grp1 = cnt // promo_quant[sku]
@@ -127,6 +137,7 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
