@@ -32,4 +32,4 @@ class TestCHK():
         assert checkout_solution.checkout("HG") == 30
         assert checkout_solution.checkout("STX") == 45
         assert checkout_solution.checkout("STXSTX") == 90
-        assert checkout_solution.checkout("SSSZ") == 90
+        assert checkout_solution.checkout("SSSZ") == 65

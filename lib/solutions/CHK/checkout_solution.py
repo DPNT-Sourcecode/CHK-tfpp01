@@ -103,16 +103,15 @@ def checkout(skus):
 
     local_cnt = 0
     grp3 = total_cnt // 3
-    while grp3 > 0:
-        for sku in 'ZYSTX':
-            while count[sku] > 0:
-                count[sku] -= 1
-                local_cnt += 1
+    for sku in 'ZYSTX':
+        while count[sku] > 0 and grp3 > 0:
+            count[sku] -= 1
+            local_cnt += 1
 
-                if local_cnt == 3:
-                    chk_val += 45
-                    local_cnt = 0
-                    grp3 -= 1
+            if local_cnt == 3:
+                chk_val += 45
+                local_cnt = 0
+                grp3 -= 1
 
     for sku, cnt in count.items():
         if sku == 'A' or sku == 'H' or sku == 'V':
