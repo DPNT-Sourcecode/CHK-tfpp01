@@ -77,7 +77,7 @@ def checkout(skus):
     for sku in skus:
         if sku not in prices:
             return -1
-        count[sku] = 1 + count.get(sku, 0)
+        count[sku] += 1
     
     chk_val = 0
 
@@ -126,4 +126,5 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
