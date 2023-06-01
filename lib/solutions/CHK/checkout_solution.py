@@ -97,7 +97,7 @@ def checkout(skus):
                 count[other[sku]] -= grp   
     
     # STXYZ
-    for sku in 'STXYZ':
+    for sku in 'ZYSTX':
         grp3 = count[sku]//3
         count[sku] = count[sku] % 3
         chk_val += (45 * grp3)
@@ -127,5 +127,6 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
