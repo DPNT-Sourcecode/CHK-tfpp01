@@ -96,21 +96,22 @@ def checkout(skus):
             else:
                 count[other[sku]] -= grp   
     
-    # STXYZ
+    # Count total STXYZ 
     total_cnt = 0
     for sku in 'ZYSTX':
         total_cnt += count[sku]
 
-    local_cnt = 0
+    grp_cnt = 0
+    # number of group of 3 we can make from STXYZ
     grp3 = total_cnt // 3
     for sku in 'ZYSTX':
         while count[sku] > 0 and grp3 > 0:
             count[sku] -= 1
-            local_cnt += 1
+            grp_cnt += 1
 
-            if local_cnt == 3:
+            if grp_cnt == 3:
                 chk_val += 45
-                local_cnt = 0
+                grp_cnt = 0
                 grp3 -= 1
 
     for sku, cnt in count.items():
@@ -138,4 +139,5 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
