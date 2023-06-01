@@ -102,7 +102,8 @@ def checkout(skus):
         total_cnt += count[sku]
 
     local_cnt = 0
-    while total_cnt > 0:
+    grp3 = total_cnt // 3
+    while grp3 > 0:
         for sku in 'ZYSTX':
             while count[sku] > 0:
                 count[sku] -= 1
@@ -111,7 +112,8 @@ def checkout(skus):
                 if local_cnt == 3:
                     chk_val += 45
                     local_cnt = 0
-
+                    total_cnt -= 1
+                    
     for sku, cnt in count.items():
         if sku == 'A' or sku == 'H' or sku == 'V':
             grp1 = cnt // promo_quant[sku]
@@ -137,6 +139,7 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
