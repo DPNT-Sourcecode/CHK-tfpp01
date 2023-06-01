@@ -71,7 +71,13 @@ def checkout(skus):
         'V':2
     }
 
-
+    # mapping for X item A -> free itemB
+    other = {
+        'E':'B',
+        'N':'M',
+        'R':'Q'
+    }
+    
     count = {chr(i):0 for i in range(ord('A'), ord('Z')+1)}
 
     for sku in skus:
@@ -81,13 +87,6 @@ def checkout(skus):
     
     chk_val = 0
 
-    # mapping for X item A -> free itemB
-    other = {
-        'E':'B',
-        'N':'M',
-        'R':'Q'
-    }
-
     # Promo for X item A -> free item B
     for sku, cnt in count.items():
         if sku == 'E' or sku == 'N' or sku == 'R':
@@ -96,8 +95,13 @@ def checkout(skus):
                 count[other[sku]] = 0
             else:
                 count[other[sku]] -= grp   
-
-
+    
+    # STXYZ
+    for sku in 'STXYZ':
+        grp3 = count[sku]//3
+        count[sku] = count[sku] % 3
+        chk_val += (45 * grp3)
+        
     for sku, cnt in count.items():
         if sku == 'A' or sku == 'H' or sku == 'V':
             grp1 = cnt // promo_quant[sku]
@@ -123,4 +127,5 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 

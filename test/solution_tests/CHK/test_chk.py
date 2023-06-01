@@ -3,6 +3,7 @@ from lib.solutions.CHK import checkout_solution
 
 class TestCHK():
     def test_sum(self):
+        assert checkout_solution.checkout("SSSSSS") == 90
         assert checkout_solution.checkout("AAAAAAAABBBCDDEEFFF") == 525
         assert checkout_solution.checkout("EEEBFF") == 140
         assert checkout_solution.checkout("EEEEBB") == 160
