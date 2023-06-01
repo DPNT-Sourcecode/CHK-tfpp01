@@ -72,7 +72,7 @@ def checkout(skus):
     }
 
 
-    count = defaultdict(int)
+    count = {chr(i):0 for i in range(ord('A'), ord('Z')+1)}
 
     for sku in skus:
         if sku not in prices:
@@ -126,9 +126,4 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
-
-
-
-
-
 
