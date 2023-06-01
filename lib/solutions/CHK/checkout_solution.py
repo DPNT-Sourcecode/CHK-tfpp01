@@ -112,8 +112,8 @@ def checkout(skus):
                 if local_cnt == 3:
                     chk_val += 45
                     local_cnt = 0
-                    total_cnt -= 1
-                    
+                    grp3 -= 1
+
     for sku, cnt in count.items():
         if sku == 'A' or sku == 'H' or sku == 'V':
             grp1 = cnt // promo_quant[sku]
@@ -139,8 +139,4 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
-
-
-
-
 
