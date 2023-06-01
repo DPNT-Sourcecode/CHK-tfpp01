@@ -43,6 +43,12 @@ def checkout(skus):
         'V':130
     }
 
+    special_prices_2 = {
+        'A':130,
+        'H':5,
+        'V':90
+    }
+
     # Quanitity needed to be eligible for promotion
     promo_quant = {
         'F':2,
@@ -93,21 +99,13 @@ def checkout(skus):
 
 
     for sku, cnt in count.items():
-        if sku == 'A':
-            grp_5A = cnt // 5
-            rem_5A = cnt % 5
-            grp_3A = rem_5A // 3
-            rem_3A = rem_5A % 3
+        if sku == 'A' or sku == 'H' or sku == 'V':
+            grp1 = cnt // promo_quant[sku]
+            rem1 = cnt % promo_quant[sku]
+            grp2 = rem1 // promo_quant_2[sku]
+            rem2 = rem1 % promo_quant_2[sku]
 
-            chk_val += (200*grp_5A) + (130*grp_3A) + (prices[sku]*rem_3A)
-
-        elif sku == 'H':
-            grp_10H = cnt // 10
-            rem_10H = cnt % 10
-            grp_5H = rem_10H // 5
-            rem_5H = rem_10H // 5
-
-            chk_val += (80*grp_10H) + (45*grp_5H) + (prices[sku]*rem_5H)
+            chk_val += (special_prices[sku]*grp1) + (special_prices_2[sku]*grp2) + (prices[sku]*rem2)
 
         # Promo for special price for X item A
         elif sku == 'B' or sku == 'K' or sku == 'P' or sku == 'Q':
@@ -126,5 +124,6 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
