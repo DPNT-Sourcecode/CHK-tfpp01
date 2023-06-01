@@ -92,10 +92,12 @@ def checkout(skus):
     for sku, cnt in count.items():
         if sku == 'E' or sku == 'N' or sku == 'R':
             grp = cnt // promo_quant[sku]
+            print(count)
             if count[other[sku]] <= grp:
                 count[other[sku]] = 0
             else:
                 count[other[sku]] -= grp   
+            print(count)
 
 
     for sku, cnt in count.items():
@@ -124,6 +126,7 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
