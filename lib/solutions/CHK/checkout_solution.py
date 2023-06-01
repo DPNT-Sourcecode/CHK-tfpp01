@@ -96,7 +96,6 @@ def checkout(skus):
                 count[other[sku]] = 0
             else:
                 count[other[sku]] -= grp   
-            print(count)
 
 
     for sku, cnt in count.items():
@@ -124,6 +123,7 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
 
