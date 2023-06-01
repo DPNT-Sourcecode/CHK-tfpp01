@@ -51,8 +51,8 @@ def checkout(skus):
 
     # Quanitity needed to be eligible for promotion
     promo_quant = {
-        'F':2,
-        'U':3,
+        'F':3,
+        'U':4,
         'B':2,
         'K':2,
         'P':5,
@@ -113,20 +113,18 @@ def checkout(skus):
             rem = cnt % promo_quant[sku]
             
             chk_val += (special_prices[sku]*grp) + (prices[sku]*rem)
-            print(chk_val)
 
         # Promo for X item A -> free item A
         elif sku == 'F' or sku == 'U':
             grp = cnt // promo_quant[sku]
 
             chk_val += prices[sku]*(cnt-grp)
-            print(chk_val)
 
         else:
             chk_val += cnt*prices[sku]
-            print(chk_val)
 
     return chk_val
+
 
 
 
