@@ -45,7 +45,7 @@ def checkout(skus):
 
     special_prices_2 = {
         'A':130,
-        'H':5,
+        'H':45,
         'V':90
     }
 
@@ -92,7 +92,6 @@ def checkout(skus):
     for sku, cnt in count.items():
         if sku == 'E' or sku == 'N' or sku == 'R':
             grp = cnt // promo_quant[sku]
-            print(count)
             if count[other[sku]] <= grp:
                 count[other[sku]] = 0
             else:
@@ -106,7 +105,6 @@ def checkout(skus):
             rem1 = cnt % promo_quant[sku]
             grp2 = rem1 // promo_quant_2[sku]
             rem2 = rem1 % promo_quant_2[sku]
-
             chk_val += (special_prices[sku]*grp1) + (special_prices_2[sku]*grp2) + (prices[sku]*rem2)
 
         # Promo for special price for X item A
@@ -126,5 +124,6 @@ def checkout(skus):
             chk_val += cnt*prices[sku]
 
     return chk_val
+
 
 
